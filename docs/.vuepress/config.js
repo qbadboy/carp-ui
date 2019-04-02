@@ -1,7 +1,7 @@
 module.exports = {
   title: 'CARP-UI',
   description: 'A beautiful ui Library',
-  base: '/carp-ui/',
+  publicPath: '/carp-ui/',
   themeConfig: {
     nav: [
       { text: '首页', link: '/'}
