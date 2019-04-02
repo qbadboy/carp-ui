@@ -1,6 +1,4 @@
-# carp-ui
-
-[![Build Status](https://travis-ci.com/qbadboy/carp-ui.svg?branch=master)](https://travis-ci.com/qbadboy/carp-ui)
+# carp-ui [![Build Status](https://travis-ci.com/qbadboy/carp-ui.svg?branch=master)](https://travis-ci.com/qbadboy/carp-ui)
 
 ## Project setup
 ```
