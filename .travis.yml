@@ -9,6 +9,6 @@ branches:
   only:
     - master
     - dev
-    - gh-pages
-script: 
-  - ./build/deploy/docs.sh
+script:
+  - yarn lint
+  - yarn test:unit

@@ -1,13 +1,12 @@
+const nav = require('./nav');
+const sidebar = require('./sidebar');
+
 module.exports = {
-  title: 'CARP-UI',
+  title: 'CARP',
   description: 'A beautiful ui Library',
-  publicPath: '/carp-ui/',
+  base: '/carp-ui/',
   themeConfig: {
-    nav: [
-      { text: '首页', link: '/'}
-    ],
-    sidebar: [
-      {title: '介绍', path: '/'}
-    ]
+    nav,
+    sidebar
   }
 }
