@@ -10,6 +10,5 @@ branches:
     - master
     - dev
     - gh-pages
-before_script:
-  - npm i
-script: ./build/deploy/docs.sh
+script: 
+  - ./build/deploy/docs.sh
