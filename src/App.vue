@@ -12,6 +12,10 @@ export default {
 </script>
 <style lang="stylus">
 #carp
+  h1
+    font-size 20px
+    color color-primary
   p
+    font-size 14px
     color #333
 </style>
