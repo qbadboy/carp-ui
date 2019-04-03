@@ -13,9 +13,9 @@ export default {
 <style lang="stylus">
 #carp
   h1
-    font-size 20px
+    font-size font-size-title-lg
     color color-primary
   p
-    font-size 14px
-    color #333
+    font-size font-size-md
+    color color-red-dark
 </style>
