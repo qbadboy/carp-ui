@@ -11,9 +11,7 @@ export default {
 };
 </script>
 <style lang="stylus">
-#carp {
-  p {
-    color: #333;
-  }
-}
+#carp
+  p
+    color #333
 </style>
