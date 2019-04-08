@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <title>CARP-UI</title>
-  <style>
-    body {
-      background: #f2f2f2;
-    }
-
-    #playground {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 800px;
-      min-height: 100%;
-      background-color: #FFF;
-    }
-
-    html,
-    body {
-      height: 100%;
-      overflow: hidden;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="playground">
-    <div id="app"></div>
-  </div>
-  <!-- built files will be auto injected -->
-  <script>
-    (function () {
-      var base = 20;
-      // 设计稿宽度，例如：iPhone6宽度375px
-      var deviceWidth = 375;
-      // 设置根节点字体大小
-      function setFontSize() {
-        // var scale = window.document.documentElement.clientWidth / deviceWidth;
-        var scale = document.querySelector('#playground').clientWidth / deviceWidth;
-        window.document.documentElement.style.fontSize = base * Math.min(scale, 2) + 'px';
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>CARP-UI</title>
+    <style>
+      body {
+        background: #f2f2f2;
       }
 
-      setFontSize();
+      #playground {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 800px;
+        min-height: 100%;
+        background-color: #fff;
+      }
 
-      var timer = null;
-      window.addEventListener('resize', function () {
-        if (timer) return;
-        timer = setTimeout(function () {
-          setFontSize();
-          clearTimeout(timer);
-          timer = null;
-        }, 100);
-      });
-    })()
-  </script>
-</body>
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
 
+  <body>
+    <div id="playground">
+      <div id="app"></div>
+    </div>
+    <!-- built files will be auto injected -->
+    <script>
+      (function() {
+        var base = 20;
+        // 设计稿宽度，例如：iPhone6宽度375px
+        var deviceWidth = 375;
+        // 设置根节点字体大小
+        function setFontSize() {
+          // var scale = window.document.documentElement.clientWidth / deviceWidth;
+          var scale =
+            document.querySelector('#playground').clientWidth / deviceWidth;
+          window.document.documentElement.style.fontSize =
+            base * Math.min(scale, 2) + 'px';
+        }
+
+        setFontSize();
+
+        var timer = null;
+        window.addEventListener('resize', function() {
+          if (timer) return;
+          timer = setTimeout(function() {
+            setFontSize();
+            clearTimeout(timer);
+            timer = null;
+          }, 100);
+        });
+      })();
+    </script>
+  </body>
 </html>

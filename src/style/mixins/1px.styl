@@ -1,0 +1,18 @@
+border($color = color-primary, $direction = false, $radius = 0px)
+  &
+    position relative
+  &:after
+    position absolute
+    top 0
+    left 0
+    display block
+    content ''
+    width 200%
+    height 200%
+    if ($direction)
+      border-{$direction} 1px solid $color
+    else
+      border 1px solid $color
+    border-radius $radius * 2
+    transform scale(0.5, 0.5)
+    transform-origin top left
