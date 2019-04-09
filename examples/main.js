@@ -1,8 +1,9 @@
 import Vue from 'vue';
-import App from './index.vue';
+import App from './demo';
+import carp from '../src/index';
 
+Vue.use(carp);
 Vue.config.productionTip = false;
-Vue.prototype.__NAMESPACE__ = 'carp-';
 
 new Vue({
   render: h => h(App)

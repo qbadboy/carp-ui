@@ -1,0 +1,15 @@
+.DS_Store
+/dist
+/docs
+/build
+/tests
+/examples
+/config
+/public
+
+vue.config.js
+babel.config.js
+jest.config.js
+.prettierrc.js
+.travis.yml
+*.map

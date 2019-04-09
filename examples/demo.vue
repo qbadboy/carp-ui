@@ -2,6 +2,7 @@
   <div id="carp">
     <h1>CARP</h1>
     <p>a beautiful ui library</p>
+    <carp-button>TEST</carp-button>
   </div>
 </template>
 

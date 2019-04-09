@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 circel()
   width 6px
   height @width
