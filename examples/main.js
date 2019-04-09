@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './demo';
+import App from './App';
 import carp from '../src/index';
 
 Vue.use(carp);
