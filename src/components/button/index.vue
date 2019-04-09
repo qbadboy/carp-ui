@@ -88,6 +88,8 @@ export default {
     background-color transparent
     color btn-background-color
     border(btn-background-color)
+    .carp-loading > div
+      background-color btn-background-color
   &.disabled
     color darken(btn-text-color, 5%)
     background-color lighten(desaturate(btn-background-color, 80%), 80%)

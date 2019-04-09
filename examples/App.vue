@@ -13,6 +13,7 @@ export default {
 </script>
 <style lang="stylus">
 #carp
+  padding layout-gap-sm
   h1
     font-size font-size-title-lg
     color color-primary

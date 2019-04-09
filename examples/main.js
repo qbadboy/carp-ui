@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './App';
-import carp from '../lib/carp.es.js';
+import carp from '../lib/carp_ui.es.js';
 
 Vue.use(carp);
 Vue.config.productionTip = false;
