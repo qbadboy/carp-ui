@@ -6,6 +6,8 @@
 /examples
 /config
 /public
+/bin
+/src
 
 vue.config.js
 babel.config.js

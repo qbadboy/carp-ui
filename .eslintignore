@@ -1,0 +1,5 @@
+*/**/*.es.js
+*/**/*.umd.js
+*/**/*.umd.min.js
+*/**/*.common.js
+*/**/*.common.min.js
