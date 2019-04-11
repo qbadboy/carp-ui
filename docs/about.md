@@ -2,34 +2,39 @@
 
 [![Build Status](https://travis-ci.com/qbadboy/carp-ui.svg?branch=master)](https://travis-ci.com/qbadboy/carp-ui)
 
-## 如何开始
+## 从这里开始
 
-- 安装依赖
+安装 carp-ui
 
-```
-yarn install
-```
+```bash
+// 通过npm安装
+npm install carp-ui -D
 
-- 本地开发，支持热更新
-
-```
-yarn serve
+// 通过yarn安装
+yarn add carp-ui -D
 ```
 
-- 打包编译
+全局引入 carp-ui
 
-```
-yarn build
+```javascript
+import Vue from 'vue'
+import Carp from 'carp-ui'
+
+// 实例化vue之前引入
+Vue.use(Carp)
+
+new Vue({ ... })
 ```
 
-- 文档编写
+按需引入
 
-```
-yarn dev:docs
-```
+```javascript
+import Vue from 'vue'
+import { Button, ... } from 'carp-ui'
 
-- 文档更新
+// 实例化vue之前引入
+Vue.use(Button)
 
-```
-yarn deploy:docs
+new Vue({ ... })
+
 ```

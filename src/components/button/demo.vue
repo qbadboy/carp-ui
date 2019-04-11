@@ -2,6 +2,7 @@
   <div id="demo">
     <carp-button>normal</carp-button>
     <carp-button loading>loading</carp-button>
+    <carp-button loading outline>loading</carp-button>
     <carp-button outline>outline</carp-button>
     <carp-button radius>radius</carp-button>
     <carp-button disabled>disabled</carp-button>
@@ -11,10 +12,10 @@
 </template>
 
 <script>
-import button from '../index';
+import Button from './index';
 
 export default {
-  components: { carpButton: button }
+  components: { carpButton: Button }
 };
 </script>
 

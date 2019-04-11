@@ -1,18 +1,41 @@
 {
   "name": "carp-ui",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "author": "qbadboy",
+  "description": "a beautiful ui library",
+  "keywords": [
+    "vue",
+    "vue ui",
+    "carp",
+    "carpui"
+  ],
+  "license": "MIT",
+  "main": "lib/carp_ui.umd.js",
+  "module": "lib/carp_ui.es.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qbadboy/carp-ui.git"
+  },
+  "homepage": "https://qbadboy.github.io/carp-ui/",
+  "bugs": {
+    "url": "https://github.com/qbadboy/carp-ui/issues"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name carp_ui --dest lib ./src/index.js",
+    "lib:es": "rollup --config rollup.config.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "build:docs": "vuepress build docs",
     "dev:docs": "vuepress dev docs",
-    "deploy:docs": "./build/deploy/docs.sh"
+    "deploy:docs": "./bin/docs.deploy.sh"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "vue": "^2.6.6"
+  },
+  "peerDependencies": {
     "vue": "^2.6.6"
   },
   "devDependencies": {
@@ -30,6 +53,13 @@
     "lint-staged": "^8.1.4",
     "postcss-pxtorem": "^4.0.1",
     "prettier": "^1.16.4",
+    "rollup": "^1.9.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.1",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-stylus-compiler": "^1.0.1",
+    "rollup-plugin-vue": "^4.7.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.21",
@@ -43,5 +73,9 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "browserslist": [
+    "iOS >= 8",
+    "Android > 4.0"
+  ]
 }

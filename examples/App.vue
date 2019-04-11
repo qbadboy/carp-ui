@@ -1,7 +1,8 @@
 <template>
   <div id="carp">
-    <h1>CARP</h1>
+    <div>CARP</div>
     <p>a beautiful ui library</p>
+    <carp-button>TEST</carp-button>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ export default {
 </script>
 <style lang="stylus">
 #carp
+  padding layout-gap-sm
   h1
     font-size font-size-title-lg
     color color-primary
