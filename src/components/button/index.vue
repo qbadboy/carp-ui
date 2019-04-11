@@ -78,7 +78,7 @@ export default {
   &.radius
     border-radius btn-radius
     &.outline
-      border(btn-background-color, false, btn-radius)
+      borderOnePx(btn-background-color, false, btn-radius)
   &.inline
     display inline-block
   &.small
@@ -87,7 +87,7 @@ export default {
   &.outline
     background-color transparent
     color btn-background-color
-    border(btn-background-color)
+    borderOnePx(btn-background-color)
     .carp-loading > div
       background-color btn-background-color
   &.disabled
@@ -96,10 +96,10 @@ export default {
     cursor not-allowed
     &.outline
       background-color transparent
-      border(@color)
+      borderOnePx(@color)
     &.radius
       &.outline
-        border(@color, false, btn-radius)
+        borderOnePx(@color, false, btn-radius)
   &.relative
     position relative
 </style>

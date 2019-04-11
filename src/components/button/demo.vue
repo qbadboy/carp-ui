@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import button from './index';
+import Button from './index';
 
 export default {
-  components: { carpButton: button }
+  components: { carpButton: Button }
 };
 </script>
 

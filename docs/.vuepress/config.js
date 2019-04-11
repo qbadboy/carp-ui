@@ -4,20 +4,25 @@ module.exports = {
   base: '/carp-ui/',
   themeConfig: {
     // 导航栏
-    nav: [{
-      text: '首页',
-      link: '/'
-    }, {
-      text: '介绍',
-      link: '/about'
-    }],
+    nav: [
+      {
+        text: '首页',
+        link: '/'
+      },
+      {
+        text: '介绍',
+        link: '/about',
+        test: 'aaaa'
+      }
+    ],
     // 侧边栏
-    sidebar: [{
+    sidebar: [
+      {
         title: '介绍',
         path: '/about'
       },
       {
-        title: '组件',
+        title: '基础',
         collapsable: false,
         children: ['/component/button']
       }
@@ -30,4 +35,4 @@ module.exports = {
       }
     }
   }
-}
+};
