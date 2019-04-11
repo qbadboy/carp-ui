@@ -1,6 +1,6 @@
 # Button
 
-按钮组件提供默认、线框、圆角、loading 等样式，[DEMO](/examples/Button.html)
+按钮组件提供默认、线框、圆角、loading 等样式。[DEMO](/examples/button.html)
 
 ## 示例
 

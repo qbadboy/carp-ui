@@ -11,9 +11,9 @@ module.exports = {
       },
       {
         text: '介绍',
-        link: '/about',
-        test: 'aaaa'
-      }
+        link: '/about'
+      },
+      { text: 'GitHub', link: 'https://github.com/qbadboy/carp-ui' }
     ],
     // 侧边栏
     sidebar: [
@@ -24,7 +24,7 @@ module.exports = {
       {
         title: '基础',
         collapsable: false,
-        children: ['/component/button']
+        children: ['/component/button', '/component/switch']
       }
     ]
   },
