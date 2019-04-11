@@ -4,7 +4,7 @@
 
 ## 示例
 
-<device :site="'http://localhost:8080/examples/button.html'"></device>
+<device :site="'/carp-ui/examples/button.html'"></device>
 
 默认样式
 
