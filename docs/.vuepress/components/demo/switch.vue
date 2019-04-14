@@ -1,7 +1,6 @@
 <template>
   <div>
-    <carp-switch v-model="status"/>
-    <br>
+    <carp-switch v-model="status" :disabled="disabled"/>
     状态: {{status}}
   </div>
 </template>
@@ -9,9 +8,14 @@
 <script>
 export default {
   data() {
+    let { on } = this;
     return {
-      status: true
+      status: on
     };
+  },
+  props: {
+    on: Boolean,
+    disabled: Boolean
   }
 };
 </script>

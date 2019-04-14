@@ -1,14 +1,20 @@
 <template>
   <div class="carp-loading">
-    <div></div>
-    <div></div>
-    <div></div>
+    <div :style="{ backgroundColor: this.color }"></div>
+    <div :style="{ backgroundColor: this.color }"></div>
+    <div :style="{ backgroundColor: this.color }"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'carp-loading'
+  name: 'carp-loading',
+  props: {
+    color: {
+      type: String,
+      default: '#FFF'
+    }
+  }
 };
 </script>
 

@@ -1,9 +1,10 @@
 <template>
-  <div class="carp-switch" :class="{ on: checked }" @click="trigger">
+  <div class="carp-switch" :class="{ on: checked, disabled }" @click="trigger">
     <input
       type="checkbox"
       ref="switch-input"
       :checked="checked"
+      :disabled="disabled"
       @change="$emit('change:switch', $event.target.checked)"
     />
   </div>
@@ -13,7 +14,8 @@
 export default {
   name: 'carp-switch',
   props: {
-    checked: Boolean
+    checked: Boolean,
+    disabled: Boolean
   },
   model: {
     event: 'change:switch',
@@ -31,7 +33,7 @@ export default {
 .carp-switch
   width switch-width
   height switch-height
-  border 1px solid switch-color
+  border 1px solid color-gray-light
   border-radius (switch-height / 2)
   background-color #CCC
   position relative
@@ -48,8 +50,11 @@ export default {
     left 0
     top 0
     transition left 200ms
+  &.disabled
+    opacity .5
   &.on
     background-color switch-color
+    border 1px solid switch-color
     &:before
       left (switch-width - switch-height)
   input[type='checkbox']
