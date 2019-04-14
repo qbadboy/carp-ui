@@ -1,23 +1,40 @@
-# CARP-UI
-
-a beautiful ui library
+# CARP UI
 
 [![Build Status](https://travis-ci.com/qbadboy/carp-ui.svg?branch=master)](https://travis-ci.com/qbadboy/carp-ui)
 
-## Project setup
+## 使用
 
-```
-yarn install
+安装 carp-ui
+
+```bash
+// 通过npm安装
+npm install carp-ui -D
+
+// 通过yarn安装
+yarn add carp-ui -D
 ```
 
-### Compiles and hot-reloads for development
+全局引入 carp-ui
 
-```
-yarn serve
+```javascript
+import Vue from 'vue'
+import Carp from 'carp-ui'
+
+// 实例化vue之前引入
+Vue.use(Carp)
+
+new Vue({ ... })
 ```
 
-### Deploy documents
+按需引入
 
-```
-yarn deploy:docs
+```javascript
+import Vue from 'vue'
+import { Button, ... } from 'carp-ui'
+
+// 实例化vue之前引入
+Vue.use(Button)
+
+new Vue({ ... })
+
 ```
