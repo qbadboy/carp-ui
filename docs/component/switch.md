@@ -24,11 +24,18 @@ export default {
 </script>
 ```
 
+开关禁用
+
+```vue
+<carp-switch v-model="status" disabled />
+```
+
 ## Props
 
-| 属性    |   说明   |  类型   | 默认值 |
-| :------ | :------: | :-----: | -----: |
-| checked | 开关状态 | Boolean |  false |
+| 属性     |   说明   |  类型   | 默认值 |
+| :------- | :------: | :-----: | -----: |
+| checked  | 开关状态 | Boolean |  false |
+| disabled | 开关禁用 | Boolean |  false |
 
 ## Event
 

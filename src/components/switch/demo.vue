@@ -1,6 +1,7 @@
 <template>
   <div id="demo">
-    <carp-switch></carp-switch>
+    <carp-switch v-model="status"></carp-switch>
+    <carp-switch v-model="disabledStatus" disabled></carp-switch>
   </div>
 </template>
 
@@ -10,7 +11,8 @@ import Switch from './index';
 export default {
   data() {
     return {
-      status: true
+      status: true,
+      disabledStatus: true
     };
   },
   components: { carpSwitch: Switch }
