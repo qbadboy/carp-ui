@@ -24,7 +24,11 @@ module.exports = {
       {
         title: '基础',
         collapsable: false,
-        children: ['/component/button', '/component/switch']
+        children: [
+          '/component/button',
+          '/component/switch',
+          '/component/loading'
+        ]
       }
     ]
   },
