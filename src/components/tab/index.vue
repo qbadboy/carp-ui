@@ -1,6 +1,9 @@
 <template>
   <div v-if="tabs.length > 0" ref="carp-tab" class="carp-tab">
-    <div class="carp-tab-box" :style="{ overflow: !isScroll && 'hidden' }">
+    <div
+      class="carp-tab-box"
+      :style="{ 'overflow-x': (!isScroll && 'hidden') || 'auto' }"
+    >
       <div ref="carp-tab-inner" class="carp-tab-inner" :style="{ display }">
         <div
           v-for="(tab, idx) in tabs"
@@ -12,6 +15,7 @@
           @click="!tab.disabled && onClickTabItem(idx, $event)"
         >
           <div class="carp-tab-content" :style="tabContentStyle">
+            <slot name="icon"></slot>
             {{ tab.name }}
           </div>
         </div>
@@ -22,7 +26,6 @@
             bar: indicatorType === 'bar',
             point: indicatorType === 'point'
           }"
-          :style="tabIndicatorStyle"
         ></div>
       </div>
     </div>
@@ -34,10 +37,10 @@
 
 <script>
 import anime from 'animejs';
-import { propValidator as checkValue, px2rem } from '@/utils';
+import { propValidator as checkValue, px2rem } from '../../utils';
 
 export default {
-  name: 'CarpTab',
+  name: 'carp-tab',
   model: {
     prop: 'current',
     event: 'click:tab'
@@ -70,11 +73,13 @@ export default {
           }
         })
     },
-    color: { type: String },
-    activeColor: { type: String },
+    color: String,
+    activeColor: String,
+    activeFontSize: Number,
+    activeFontWeight: Number,
     fontSize: { type: Number, default: 20 },
     fontWeight: { type: Number, default: 400 },
-    lightHeight: { type: Number, default: 2.8 },
+    lineHeight: { type: Number, default: 2.8 },
     indicatorType: {
       type: String,
       default: 'bar',
@@ -85,10 +90,10 @@ export default {
         })
     },
     indicatorWidth: Number,
-    indicatorHight: Number,
+    indicatorHeight: Number,
     indicatorColor: String,
-    duration: { type: Number, default: 2000 },
-    isAnimation: { type: Boolean, default: true },
+    duration: { type: Number, default: 800 },
+    isAnimation: Boolean,
     isScroll: Boolean
   },
   data() {
@@ -99,25 +104,14 @@ export default {
   },
   computed: {
     tabContentStyle() {
-      let { color, fontSize, fontWeight, lightHeight } = this;
+      let { color, fontSize, fontWeight, lineHeight } = this;
 
       return {
         color,
         fontSize: fontSize && px2rem(fontSize),
         fontWeight,
-        lightHeight
+        lineHeight
       };
-    },
-    tabIndicatorStyle() {
-      let { indicatorColor, indicatorHeight, indicatorType } = this;
-      if (indicatorType === 'bar') {
-        return {
-          color: indicatorColor,
-          height: indicatorHeight
-        };
-      }
-
-      return {};
     }
   },
   watch: {
@@ -128,10 +122,7 @@ export default {
     }
   },
   mounted() {
-    let { init, onResize } = this;
-
-    init();
-    onResize(init);
+    this.init();
   },
   methods: {
     // tab-item指示器动画
@@ -140,6 +131,8 @@ export default {
         indicatorType,
         duration,
         isAnimation,
+        indicatorColor,
+        indicatorHeight,
         indicatorWidth: propIndicatorWidth
       } = this;
       const tabItem = this.$refs['carp-tab-item'][idx];
@@ -166,6 +159,8 @@ export default {
 
       if (indicatorType === 'bar') {
         animeOptions.width = propIndicatorWidth || tabItemWidth;
+        animeOptions.background = indicatorColor;
+        animeOptions.height = indicatorHeight;
       }
 
       anime(animeOptions);
@@ -188,12 +183,6 @@ export default {
         duration: this.isAnimation ? this.duration : 0
       });
     },
-    onResize(fn) {
-      window.onresize = () => {
-        clearTimeout(this.onResizeTimer);
-        this.onResizeTimer = setTimeout(fn, 200);
-      };
-    },
     // 设置滚动区域宽度
     setCarpTabInnerWidth() {
       let innerWidth = 2;
@@ -210,8 +199,8 @@ export default {
       if (this.tabs.length <= 0) return;
 
       let { indicatorMoveTo, current, setCarpTabInnerWidth } = this;
-      indicatorMoveTo(current, false);
 
+      indicatorMoveTo(current, false);
       setCarpTabInnerWidth();
     },
     onClickTabItem(idx) {
@@ -244,6 +233,8 @@ export default {
     font-weight font-weight-light
     box-sizing border-box
     opacity 0.5
+    cursor pointer
+    user-select none
     &.active
       opacity 1
   &-content

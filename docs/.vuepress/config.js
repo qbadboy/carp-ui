@@ -27,7 +27,8 @@ module.exports = {
         children: [
           '/component/button',
           '/component/switch',
-          '/component/loading'
+          '/component/loading',
+          '/component/tab'
         ]
       }
     ]

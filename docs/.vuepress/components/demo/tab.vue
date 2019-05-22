@@ -1,5 +1,5 @@
 <template>
-  <div id="demo">
+  <div>
     <p>
       [点]
       <carp-tab
@@ -16,7 +16,7 @@
         <div v-show="tab1.index == 1">武汉 - 北京</div>
       </carp-tab>
     </p>
-    <br />
+    <br>
     <p>
       [下划线] - 动画开启
       <carp-tab :tabs="tab2.option" v-model="tab2.index" :is-animation="true">
@@ -24,22 +24,14 @@
         <div v-show="tab2.index == 1">武汉 - 北京</div>
       </carp-tab>
     </p>
-    <br />
+    <br>
     <p>
       [下划线] - tab禁用
-      <carp-tab
-        :tabs="tab3.option"
-        :is-animation="true"
-        :is-scroll="true"
-      ></carp-tab>
+      <carp-tab :tabs="tab3.option" :is-animation="true" :is-scroll="true"></carp-tab>
     </p>
     <p>
       [下划线] - 自定义
-      <carp-tab
-        :tabs="tab2.option"
-        :is-animation="true"
-        :color="'#F60'"
-      ></carp-tab>
+      <carp-tab :tabs="tab2.option" :is-animation="true" :color="'#F60'"></carp-tab>
 
       <carp-tab
         :tabs="tab2.option"
@@ -77,10 +69,3 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-#demo
-  padding layout-gap-md 0
-  margin 0 layout-gap-md
-  .carp-button
-    margin-bottom layout-gap-sm
-</style>
