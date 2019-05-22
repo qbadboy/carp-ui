@@ -12,6 +12,7 @@
   "license": "MIT",
   "main": "lib/carp_ui.umd.js",
   "module": "lib/carp_ui.es.js",
+  "style": "lib/carp_ui.css",
   "repository": {
     "type": "git",
     "url": "https://github.com/qbadboy/carp-ui.git"
