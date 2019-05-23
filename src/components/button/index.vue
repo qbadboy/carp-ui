@@ -2,10 +2,11 @@
   <div
     class="carp-button"
     :class="bindClass"
+    ref="carp-button"
     @click="(!disabled || !loading) && $emit('click:button')"
   >
-    <Loading v-if="loading"></Loading>
-    <slot v-else-if="!loading"></slot>
+    <Loading v-if="loading" :key="'button-loading'"></Loading>
+    <slot v-else></slot>
   </div>
 </template>
 
@@ -59,7 +60,11 @@ export default {
   components: { Loading },
   mounted() {
     // 激活Safari元素active样式
-    document.addEventListener('touchstart', function() {}, false);
+    this.$refs['carp-button'].addEventListener(
+      'touchstart',
+      function() {},
+      false
+    );
   }
 };
 </script>
@@ -89,7 +94,7 @@ export default {
     color btn-background-color
     borderOnePx(btn-background-color)
     .carp-loading > div
-      background-color btn-background-color
+      background-color btn-background-color !important
   &.disabled
     color darken(btn-text-color, 5%)
     background-color lighten(desaturate(btn-background-color, 80%), 80%)
