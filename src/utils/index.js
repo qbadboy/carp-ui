@@ -22,6 +22,6 @@ export function propValidator(value) {
   };
 }
 
-export function px2rem(px) {
-  return px / 20 + 'rem';
+export function px2vw(px) {
+  return px && (px / process.env.VUE_APP_DESIGN_WIDTH).toFixed(3) * 100 + 'vw';
 }

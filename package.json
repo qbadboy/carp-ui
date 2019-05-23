@@ -1,6 +1,6 @@
 {
   "name": "carp-ui",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "author": "qbadboy",
   "description": "a beautiful ui library",
   "keywords": [
@@ -53,7 +53,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "lint-staged": "^8.1.4",
-    "postcss-pxtorem": "^4.0.1",
+    "postcss-px-to-viewport": "^1.1.0",
     "prettier": "^1.16.4",
     "rollup": "^1.9.0",
     "rollup-plugin-babel": "^4.3.2",

@@ -37,7 +37,7 @@
 
 <script>
 import anime from 'animejs';
-import { propValidator as checkValue, px2rem } from '../../utils';
+import { propValidator as checkValue, px2vw } from '../../utils';
 
 export default {
   name: 'carp-tab',
@@ -108,7 +108,7 @@ export default {
 
       return {
         color,
-        fontSize: fontSize && px2rem(fontSize),
+        fontSize: fontSize && px2vw(fontSize),
         fontWeight,
         lineHeight
       };
