@@ -4,14 +4,16 @@
       class="carp-tab-box"
       :style="{ 'overflow-x': (!scroll && 'hidden') || 'auto' }"
     >
-      <div ref="carp-tab-inner" class="carp-tab-inner" :style="{ display }">
+      <div ref="carp-tab-inner" class="carp-tab-inner" :class="{ flex }">
         <div
           v-for="(tab, idx) in tabs"
           :key="`tab-item-${idx}`"
           ref="carp-tab-item"
           class="carp-tab-item"
           :class="{ active: current === idx }"
-          :style="{ opacity: tab.disabled && 0.3 }"
+          :style="{
+            opacity: tab.disabled && 0.3
+          }"
           @click="!tab.disabled && onClickTabItem(idx, $event)"
         >
           <div class="carp-tab-content" :style="tabContentStyle">
@@ -22,10 +24,7 @@
         <div
           ref="carp-tab-indicator"
           class="carp-tab-indicator"
-          :class="{
-            bar: indicatorType === 'bar',
-            point: indicatorType === 'point'
-          }"
+          :class="{ point: point, bar: !point }"
         ></div>
       </div>
     </div>
@@ -46,16 +45,8 @@ export default {
     event: 'click:tab'
   },
   props: {
-    display: {
-      type: String,
-      default: 'block',
-      validator: val =>
-        checkValue(val)({
-          propName: 'display',
-          keys: ['block', 'flex']
-        })
-    },
-    current: { type: Number, default: 0 },
+    point: Boolean,
+    flex: Boolean,
     tabs: {
       type: Array,
       default: () => [],
@@ -73,24 +64,11 @@ export default {
           }
         })
     },
+    current: { type: Number, default: 0 },
     color: String,
-    activeColor: String,
-    activeFontSize: Number,
-    activeFontWeight: Number,
-    fontSize: { type: Number, default: 20 },
-    fontWeight: { type: Number, default: 400 },
-    lineHeight: { type: Number, default: 2.8 },
-    indicatorType: {
-      type: String,
-      default: 'bar',
-      validator: val =>
-        checkValue(val)({
-          propName: 'indicatorType',
-          keys: ['bar', 'point']
-        })
-    },
+    fontSize: Number,
+    lineHeight: Number,
     indicatorWidth: Number,
-    indicatorHeight: Number,
     indicatorColor: String,
     duration: { type: Number, default: 800 },
     animation: Boolean,
@@ -104,12 +82,11 @@ export default {
   },
   computed: {
     tabContentStyle() {
-      let { color, fontSize, fontWeight, lineHeight } = this;
+      let { color, fontSize, lineHeight } = this;
 
       return {
         color,
         fontSize: fontSize && px2vw(fontSize),
-        fontWeight,
         lineHeight
       };
     }
@@ -128,11 +105,10 @@ export default {
     // tab-item指示器动画
     indicatorMoveTo(idx, isAnimation = true) {
       const {
-        indicatorType,
+        point,
         duration,
         animation,
         indicatorColor,
-        indicatorHeight,
         indicatorWidth: propIndicatorWidth
       } = this;
       const tabItem = this.$refs['carp-tab-item'][idx];
@@ -140,7 +116,7 @@ export default {
 
       let tabItemWidth = tabItem.clientWidth;
       let indicatorWidth =
-        (indicatorType === 'bar' && (propIndicatorWidth || tabItemWidth)) ||
+        (!point && (propIndicatorWidth || tabItemWidth)) ||
         indicator.clientWidth;
       let tabItemLeft = tabItem.offsetLeft;
 
@@ -157,10 +133,9 @@ export default {
         animeOptions.duration = 0;
       }
 
-      if (indicatorType === 'bar') {
+      if (!point) {
         animeOptions.width = propIndicatorWidth || tabItemWidth;
         animeOptions.background = indicatorColor;
-        animeOptions.height = indicatorHeight;
       }
 
       anime(animeOptions);
@@ -220,6 +195,8 @@ export default {
     padding-bottom 10px
     overflow-x auto
   &-inner
+    &.flex
+      display flex
     flex-wrap nowrap
     clearfix()
     position relative
@@ -236,6 +213,7 @@ export default {
     cursor pointer
     user-select none
     &.active
+      font-weight font-weight-medium
       opacity 1
   &-content
     color color-black
@@ -246,12 +224,12 @@ export default {
     bottom 0
     background-color color-primary-sub
     &.point
-      width 8px
-      height 8px
+      width 6px
+      height 6px
       border-radius 50%
     &.bar
-      width 100%
-      height 2px
+      width 0
+      height 3px
   // slot内容区域
   &-main
     padding 0 10px

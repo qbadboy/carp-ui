@@ -1,6 +1,6 @@
 # Tab
 
-tab 组件，支持双向绑定，支持 flex、block 布局。[DEMO](/examples/tab.html)
+tab 组件，支持双向绑定、flex 布局。[DEMO](/examples/tab.html)
 
 ## 示例
 
@@ -10,7 +10,7 @@ flex 布局
 
 ```vue
 <template>
-  <carp-tab display="flex"></carp-tab>
+  <carp-tab flex></carp-tab>
 </template>
 ```
 
@@ -54,7 +54,7 @@ export default {
 
 ```vue
 <template>
-  <carp-tab v-model="index" :is-animation="true" />
+  <carp-tab v-model="index" animation />
 </template>
 ```
 
@@ -62,15 +62,7 @@ TabItem 自定义样式
 
 ```vue
 <template>
-  <carp-tab
-    v-model="index"
-    :color="'#F60'"
-    :font-size="16"
-    :font-weight="400"
-    :active-font-weight="500"
-    :active-font-size="18"
-    :active-color="'#F60'"
-  />
+  <carp-tab v-model="index" color="#F60" :font-size="16" />
 </template>
 ```
 
@@ -79,16 +71,11 @@ TabItem 自定义样式
 ```vue
 <template>
   <!-- 点 -->
-  <carp-tab indicator-type="point" />
+  <carp-tab point />
   <!-- 下划线 -->
-  <carp-tab indicator-type="bar" />
+  <carp-tab />
   <!-- 下划线自定义 -->
-  <carp-tab
-    indicator-type="bar"
-    :indicator-width="10"
-    :indicator-height="10"
-    :indicator-color="'#F60"
-  />
+  <carp-tab :indicator-width="10" indicator-color="#F60" />
 </template>
 ```
 
@@ -116,21 +103,16 @@ export default {
 
 ## Props
 
-| 属性             |                说明                 |  类型   | 默认值 |
-| :--------------- | :---------------------------------: | :-----: | -----: |
-| display          |          flex、block 布局           | String  |  block |
-| tabs             |       tab 名称(具体值见示例)        |  Array  |     [] |
-| color            |            tab 选项颜色             | String  |     '' |
-| fontSize         |            tab 选项字号             | Number  |     20 |
-| fontWeight       |            tab 选项字重             | Number  |    400 |
-| lineHeight       |            tab 选项行高             | Number  |    2.8 |
-| activeColor      |            tab 选中颜色             | String  |   null |
-| activeFontSize   |            tab 选中字号             | Number  |   null |
-| activeFontWeight |            tab 选中字重             | Number  |   null |
-| indicatorType    |      指示器样式类型 point, bar      | String  |  point |
-| indicatorWidth   | 指示器宽度，默认自适应 tab 选项宽度 | Number  |   null |
-| indicatorHeight  |             指示器高度              | Number  |   null |
-| indicatorColor   |             指示器颜色              | String  |   null |
-| duration         |          动画时间，单位 ms          | Number  |    800 |
-| animation        |              动画开关               | Boolean |  false |
-| scroll           |              滚动开关               | Boolean |  false |
+| 属性           |                说明                 |  类型   | 默认值 |
+| :------------- | :---------------------------------: | :-----: | -----: |
+| point          |     指示器点状样式，默认为条状      | Boolean |  false |
+| flex           |            flex 布局开关            | Boolean |  false |
+| tabs           |       tab 名称(具体值见示例)        |  Array  |     [] |
+| color          |            tab 选项颜色             | String  |   null |
+| fontSize       |            tab 选项字号             | Number  |     20 |
+| lineHeight     |            tab 选项行高             | Number  |    2.8 |
+| indicatorWidth | 指示器宽度，默认自适应 tab 选项宽度 | Number  |   null |
+| indicatorColor |             指示器颜色              | String  |   null |
+| duration       |          动画时间，单位 ms          | Number  |    800 |
+| animation      |              动画开关               | Boolean |  false |
+| scroll         |              滚动开关               | Boolean |  false |
