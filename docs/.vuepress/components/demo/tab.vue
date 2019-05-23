@@ -2,13 +2,7 @@
   <div>
     <p>
       [点]
-      <carp-tab
-        indicator-type="point"
-        :tabs="tab1.option"
-        v-model="tab1.index"
-        scroll
-        animation
-      ></carp-tab>
+      <carp-tab point :tabs="tab1.option" v-model="tab1.index" animation></carp-tab>
     </p>
     <p>
       [下划线] - 动画禁用

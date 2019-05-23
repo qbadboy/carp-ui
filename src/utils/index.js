@@ -22,6 +22,7 @@ export function propValidator(value) {
   };
 }
 
+// 设计稿按iPhone8尺寸
 export function px2vw(px) {
-  return px && (px / process.env.VUE_APP_DESIGN_WIDTH).toFixed(3) * 100 + 'vw';
+  return px && (px / 375).toFixed(3) * 100 + 'vw';
 }

@@ -1,12 +1,12 @@
 <template>
-  <div v-if="tabs.length > 0" ref="carp-tab" class="carp-tab">
+  <div v-if="data.length > 0" ref="carp-tab" class="carp-tab">
     <div
       class="carp-tab-box"
       :style="{ 'overflow-x': (!scroll && 'hidden') || 'auto' }"
     >
       <div ref="carp-tab-inner" class="carp-tab-inner" :class="{ flex }">
         <div
-          v-for="(tab, idx) in tabs"
+          v-for="(tab, idx) in data"
           :key="`tab-item-${idx}`"
           ref="carp-tab-item"
           class="carp-tab-item"
@@ -47,7 +47,7 @@ export default {
   props: {
     point: Boolean,
     flex: Boolean,
-    tabs: {
+    data: {
       type: Array,
       default: () => [],
       validator: val =>
@@ -57,7 +57,7 @@ export default {
             val.map((tab, idx) => {
               if (!tab.name) {
                 console.warn(
-                  `[carp-tab tabs error] 第${idx + 1}组数据中，没有取到name的值`
+                  `[carp-tab data error] 第${idx + 1}组数据中，没有取到name的值`
                 );
               }
             });
@@ -171,7 +171,7 @@ export default {
     },
     init() {
       // 无数据时，不做初始化
-      if (this.tabs.length <= 0) return;
+      if (this.data.length <= 0) return;
 
       let { indicatorMoveTo, current, setCarpTabInnerWidth } = this;
 

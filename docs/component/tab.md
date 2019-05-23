@@ -36,7 +36,7 @@ tab 选项禁用
 
 ```vue
 <template>
-  <carp-tab :tabs="tabs"></carp-tab>
+  <carp-tab :data="tabs"></carp-tab>
 </template>
 
 <script>
@@ -83,7 +83,7 @@ TabItem 自定义样式
 
 ```vue
 <template>
-  <carp-tab :tabs="tabs" v-model="index">
+  <carp-tab :data="tabs" v-model="index">
     <div v-show="index === 0">tab1 content</div>
     <div v-show="index === 1">tab1 content</div>
   </carp-tab>
@@ -107,7 +107,7 @@ export default {
 | :------------- | :---------------------------------: | :-----: | -----: |
 | point          |     指示器点状样式，默认为条状      | Boolean |  false |
 | flex           |            flex 布局开关            | Boolean |  false |
-| tabs           |       tab 名称(具体值见示例)        |  Array  |     [] |
+| data           |       tab 名称(具体值见示例)        |  Array  |     [] |
 | color          |            tab 选项颜色             | String  |   null |
 | fontSize       |            tab 选项字号             | Number  |     20 |
 | lineHeight     |            tab 选项行高             | Number  |    2.8 |
