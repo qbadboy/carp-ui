@@ -132,4 +132,5 @@ export default {
 | indicatorHeight  |             指示器高度              | Number  |   null |
 | indicatorColor   |             指示器颜色              | String  |   null |
 | duration         |          动画时间，单位 ms          | Number  |    800 |
-| isAnimation      |              动画开关               | Boolean |  false |
+| animation        |              动画开关               | Boolean |  false |
+| scroll           |              滚动开关               | Boolean |  false |

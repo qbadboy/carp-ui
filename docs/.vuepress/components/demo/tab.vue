@@ -5,8 +5,9 @@
       <carp-tab
         indicator-type="point"
         :tabs="tab1.option"
-        :is-animation="true"
-        :is-scroll="true"
+        v-model="tab1.index"
+        scroll
+        animation
       ></carp-tab>
     </p>
     <p>
@@ -19,7 +20,7 @@
     <br>
     <p>
       [下划线] - 动画开启
-      <carp-tab :tabs="tab2.option" v-model="tab2.index" :is-animation="true">
+      <carp-tab :tabs="tab2.option" v-model="tab2.index" animation>
         <div v-show="tab2.index == 0">北京 - 武汉</div>
         <div v-show="tab2.index == 1">武汉 - 北京</div>
       </carp-tab>
@@ -27,15 +28,21 @@
     <br>
     <p>
       [下划线] - tab禁用
-      <carp-tab :tabs="tab3.option" :is-animation="true" :is-scroll="true"></carp-tab>
+      <carp-tab :tabs="tab3.option" animation scroll></carp-tab>
     </p>
     <p>
       [下划线] - 自定义
-      <carp-tab :tabs="tab2.option" :is-animation="true" :color="'#F60'"></carp-tab>
+      <carp-tab
+        :tabs="tab2.option"
+        v-model="tab2.index"
+        animation
+        :color="'#F60'"
+      ></carp-tab>
 
       <carp-tab
         :tabs="tab2.option"
-        :is-animation="true"
+        v-model="tab2.index"
+        animation
         :indicator-color="'#F60'"
         :indicator-width="8"
         :indicator-heihgt="4"

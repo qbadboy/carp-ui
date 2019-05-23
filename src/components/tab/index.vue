@@ -2,7 +2,7 @@
   <div v-if="tabs.length > 0" ref="carp-tab" class="carp-tab">
     <div
       class="carp-tab-box"
-      :style="{ 'overflow-x': (!isScroll && 'hidden') || 'auto' }"
+      :style="{ 'overflow-x': (!scroll && 'hidden') || 'auto' }"
     >
       <div ref="carp-tab-inner" class="carp-tab-inner" :style="{ display }">
         <div
@@ -93,8 +93,8 @@ export default {
     indicatorHeight: Number,
     indicatorColor: String,
     duration: { type: Number, default: 800 },
-    isAnimation: Boolean,
-    isScroll: Boolean
+    animation: Boolean,
+    scroll: Boolean
   },
   data() {
     return {
@@ -126,11 +126,11 @@ export default {
   },
   methods: {
     // tab-item指示器动画
-    indicatorMoveTo(idx, animation = true) {
+    indicatorMoveTo(idx, isAnimation = true) {
       const {
         indicatorType,
         duration,
-        isAnimation,
+        animation,
         indicatorColor,
         indicatorHeight,
         indicatorWidth: propIndicatorWidth
@@ -153,7 +153,7 @@ export default {
       };
 
       // 禁用tab动画
-      if (!isAnimation || !animation) {
+      if (!animation || !isAnimation) {
         animeOptions.duration = 0;
       }
 
@@ -180,7 +180,7 @@ export default {
           },
           { translateX: 0 }
         ],
-        duration: this.isAnimation ? this.duration : 0
+        duration: this.animation ? this.duration : 0
       });
     },
     // 设置滚动区域宽度
