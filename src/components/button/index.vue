@@ -5,7 +5,7 @@
     ref="carp-button"
     @click="(!disabled || !loading) && $emit('click:button')"
   >
-    <Loading v-if="loading" :key="'button-loading'"></Loading>
+    <Loading v-if="loading" :key="'button-loading'" class="loading"></Loading>
     <slot v-else></slot>
   </div>
 </template>
@@ -93,7 +93,7 @@ export default {
     background-color transparent
     color btn-background-color
     borderOnePx(btn-background-color)
-    .carp-loading > div
+    .loading > div
       background-color btn-background-color !important
   &.disabled
     color darken(btn-text-color, 5%)
