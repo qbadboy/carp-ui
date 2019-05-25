@@ -12,14 +12,7 @@
     <p>- Switch -</p>
     <carp-switch v-model="off.status" />
     <p>- Tab -</p>
-    <carp-tab
-      point
-      flex
-      :data="tab.data"
-      v-model="tab.index"
-      :font-size="20"
-      animate
-    >
+    <carp-tab point flex :data="tab.data" v-model="tab.index" :font-size="20">
       <div slot="animation">{{ tab.index }}</div>
       <div>{{ tab.index }}</div>
     </carp-tab>
@@ -29,6 +22,7 @@
       v-model="tab.index"
       :font-size="20"
       style="display:inline-block;width: 50%"
+      :animation="true"
     ></carp-tab>
     <carp-tab
       :data="tab.data"
@@ -37,8 +31,27 @@
       color="#b09c7e"
       indicator-color="#f60"
       style="display:inline-block;width: 50%"
-      animation
+      :animation="true"
     ></carp-tab>
+    <p>- Scroll -</p>
+    <div style="height: 80px;">
+      <carp-scroll :scrollbar="true">
+        <ul>
+          <li v-for="value in 10" :key="value">{{ value }}</li>
+        </ul>
+      </carp-scroll>
+    </div>
+    <br />
+    <carp-scroll :scroll-x="true">
+      <div class="scrollx">
+        <div class="scrollx-item">1</div>
+        <div class="scrollx-item">2</div>
+        <div class="scrollx-item">3</div>
+        <div class="scrollx-item">4</div>
+        <div class="scrollx-item">5</div>
+        <div class="scrollx-item">6</div>
+      </div>
+    </carp-scroll>
   </div>
 </template>
 
@@ -47,6 +60,7 @@ export default {
   name: 'carp',
   data() {
     return {
+      testData: ['aaa', 'bbb', 'ccc', 'ddd', 'eee'],
       off: {
         status: false
       },
@@ -79,4 +93,11 @@ export default {
     text-align center
     .carp-loading
       display inline-block
+  .scrollx
+    width 81px * 10
+    overflow hidden
+    &-item
+      float left
+      width 80px
+      border-right 1px solid #000
 </style>
