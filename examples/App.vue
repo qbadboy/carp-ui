@@ -4,11 +4,10 @@
     <p>- Button -</p>
     <carp-button>TEST</carp-button>
     <br />
+    <carp-button loading>TEST</carp-button>
     <carp-button outline loading>TEST</carp-button>
     <p>- Loading -</p>
-    <carp-loading color="red"></carp-loading>
-    <carp-loading color="orange"></carp-loading>
-    <carp-loading color="blue"></carp-loading>
+    <carp-loading></carp-loading>
     <p>- Switch -</p>
     <carp-switch v-model="off.status" />
     <p>- Tab -</p>

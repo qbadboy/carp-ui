@@ -1,20 +1,14 @@
 <template>
   <div class="carp-loading">
-    <div :style="{ backgroundColor: this.color }"></div>
-    <div :style="{ backgroundColor: this.color }"></div>
-    <div :style="{ backgroundColor: this.color }"></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'carp-loading',
-  props: {
-    color: {
-      type: String,
-      default: '#FFF'
-    }
-  }
+  name: 'carp-loading'
 };
 </script>
 
@@ -26,7 +20,7 @@ circel()
 c-loading()
   circel()
   position absolute
-  background-color color-white
+  background-color color-primary
   opacity 0.2
 .carp-loading
   circel()
