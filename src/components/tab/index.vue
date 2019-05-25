@@ -1,9 +1,6 @@
 <template>
   <div v-if="data.length > 0" ref="carp-tab" class="carp-tab">
-    <div
-      class="carp-tab-box"
-      :style="{ 'overflow-x': (!scroll && 'hidden') || 'auto' }"
-    >
+    <div class="carp-tab-box">
       <div ref="carp-tab-inner" class="carp-tab-inner" :class="{ flex }">
         <div
           v-for="(tab, idx) in data"
@@ -28,15 +25,19 @@
         ></div>
       </div>
     </div>
-    <div v-if="$slots.default" ref="carp-tab-main" class="carp-tab-main">
+    <div v-if="$slots.default || $slots.animation" class="carp-tab-main">
+      <transition name="fade">
+        <div class="transition-box" :key="current">
+          <slot name="animation"></slot>
+        </div>
+      </transition>
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
-import anime from 'animejs';
-import { propValidator as checkValue, px2vw } from '../../utils';
+import { px2vw, prefixStyle } from '../../utils/dom';
 
 export default {
   name: 'carp-tab',
@@ -50,19 +51,7 @@ export default {
     data: {
       type: Array,
       default: () => [],
-      validator: val =>
-        checkValue(val)({
-          propName: 'data',
-          checkFn: () => {
-            val.map((tab, idx) => {
-              if (!tab.name) {
-                console.warn(
-                  `[carp-tab data error] 第${idx + 1}组数据中，没有取到name的值`
-                );
-              }
-            });
-          }
-        })
+      required: true
     },
     current: { type: Number, default: 0 },
     color: String,
@@ -70,9 +59,8 @@ export default {
     lineHeight: Number,
     indicatorWidth: Number,
     indicatorColor: String,
-    duration: { type: Number, default: 800 },
-    animation: Boolean,
-    scroll: Boolean
+    duration: { type: Number, default: 200 },
+    animation: { Boolean, default: true }
   },
   data() {
     return {
@@ -95,7 +83,6 @@ export default {
     current(idx, oldIdx) {
       if (idx === oldIdx) return;
       this.indicatorMoveTo(idx);
-      this.mainMove();
     }
   },
   mounted() {
@@ -119,44 +106,30 @@ export default {
         (!point && (propIndicatorWidth || tabItemWidth)) ||
         indicator.clientWidth;
       let tabItemLeft = tabItem.offsetLeft;
-
       let translateX = tabItemLeft + tabItemWidth / 2 - indicatorWidth / 2;
 
-      let animeOptions = {
-        targets: indicator,
-        translateX,
-        duration
-      };
-
-      // 禁用tab动画
-      if (!animation || !isAnimation) {
-        animeOptions.duration = 0;
-      }
-
       if (!point) {
-        animeOptions.width = propIndicatorWidth || tabItemWidth;
-        animeOptions.background = indicatorColor;
+        let width = propIndicatorWidth || tabItemWidth;
+
+        indicator.style.width = width && `${width}px`;
+        indicator.style.backgroundColor = indicatorColor;
       }
 
-      anime(animeOptions);
-    },
-    // tab content动画
-    mainMove() {
-      const main = this.$refs['carp-tab-main'];
+      const TIME = `${(duration / 1000).toFixed(1)}s`;
 
-      if (!main) return;
-      anime({
-        targets: main,
-        keyframes: [
-          {
-            translateX: 1000,
-            duration: 5 / this.duration,
-            delay: 4 / this.duration
-          },
-          { translateX: 0 }
-        ],
-        duration: this.animation ? this.duration : 0
-      });
+      const TRANSFORM = prefixStyle('transform');
+      const TRANSITION = prefixStyle('transition');
+
+      if (!TRANSFORM || !TRANSITION) {
+        indicator.style.left = translateX + 'px';
+        return;
+      }
+
+      if (animation && isAnimation) {
+        indicator.style[TRANSITION] = `all ${TIME} linear`;
+      }
+
+      indicator.style[TRANSFORM] = `translateX(${translateX}px) translateZ(0)`;
     },
     // 设置滚动区域宽度
     setCarpTabInnerWidth() {
@@ -180,7 +153,6 @@ export default {
     },
     onClickTabItem(idx) {
       this.indicatorMoveTo(idx);
-      this.mainMove();
 
       this.$emit('click:tab', idx);
     }
@@ -188,12 +160,11 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .carp-tab
-  margin 0 -10px
+  width 100%
   &-box
     padding-bottom 10px
-    overflow-x auto
   &-inner
     &.flex
       display flex
@@ -233,4 +204,18 @@ export default {
   // slot内容区域
   &-main
     padding 0 10px
+    position relative
+  .transition-box
+    &:nth-child(2)
+      position absolute
+      width 100%
+      top 0
+  .fade-enter-active, .fade-leave-active
+    transition opacity 0.5s, transform 0.8s
+  .fade-enter, .fade-leave-to
+    opacity 0
+  .fade-enter
+    transform translateX(-600px)
+  .fade-leave-to
+    transform translateX(600px)
 </style>

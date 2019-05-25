@@ -18,12 +18,17 @@
       :data="tab.data"
       v-model="tab.index"
       :font-size="20"
-    ></carp-tab>
+      animate
+    >
+      <div slot="animation">{{ tab.index }}</div>
+      <div>{{ tab.index }}</div>
+    </carp-tab>
     <carp-tab
       point
       :data="tab.data"
       v-model="tab.index"
       :font-size="20"
+      style="display:inline-block;width: 50%"
     ></carp-tab>
     <carp-tab
       :data="tab.data"
@@ -31,7 +36,7 @@
       :font-size="14"
       color="#b09c7e"
       indicator-color="#f60"
-      :indicator-width="20"
+      style="display:inline-block;width: 50%"
       animation
     ></carp-tab>
   </div>
@@ -70,4 +75,8 @@ export default {
     display block
     margin-left 20px
     margin-bottom 20px
+  .carp-tab
+    text-align center
+    .carp-loading
+      display inline-block
 </style>

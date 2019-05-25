@@ -1,7 +1,12 @@
 import components from './components';
-import { first2Upper } from './utils';
-
 const CARP = {};
+
+export function first2Upper(str) {
+  const namespace = 'carp-';
+  str = str.split(namespace);
+
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
+}
 
 components.forEach(component => {
   let name = first2Upper(component.name);
