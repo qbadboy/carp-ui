@@ -10,28 +10,21 @@
     <carp-loading></carp-loading>
     <p>- Switch -</p>
     <carp-switch v-model="off.status" />
+    <p>- Nav -</p>
+    <carp-nav
+      :data="nav.data"
+      v-model="nav.index"
+      @nav:click="onNavClick"
+    ></carp-nav>
     <p>- Tab -</p>
-    <carp-tab point flex :data="tab.data" v-model="tab.index" :font-size="20">
-      <div slot="animation">{{ tab.index }}</div>
-      <div>{{ tab.index }}</div>
-    </carp-tab>
     <carp-tab
-      point
       :data="tab.data"
       v-model="tab.index"
       :font-size="20"
-      style="display:inline-block;width: 50%"
       :animation="true"
     ></carp-tab>
-    <carp-tab
-      :data="tab.data"
-      v-model="tab.index"
-      :font-size="14"
-      color="#b09c7e"
-      indicator-color="#f60"
-      style="display:inline-block;width: 50%"
-      :animation="true"
-    ></carp-tab>
+    <br />
+    <carp-tab :data="tab.data" v-model="tab.index" :animation="true"></carp-tab>
     <p>- Scroll -</p>
     <div style="height: 80px;">
       <carp-scroll :scrollbar="true">
@@ -63,11 +56,25 @@ export default {
       off: {
         status: false
       },
+      nav: {
+        data: [
+          { name: '接机' },
+          { name: '送机' },
+          { name: '境外接送机' },
+          { name: '定制用车' }
+        ],
+        index: 0
+      },
       tab: {
         data: [{ name: '接机' }, { name: '送机' }],
         index: 0
       }
     };
+  },
+  methods: {
+    onNavClick(id) {
+      console.log('onNavClick:', id);
+    }
   }
 };
 </script>
@@ -89,7 +96,6 @@ export default {
     margin-left 20px
     margin-bottom 20px
   .carp-tab
-    text-align center
     .carp-loading
       display inline-block
   .scrollx

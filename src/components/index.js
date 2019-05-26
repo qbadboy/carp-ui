@@ -1,8 +1,9 @@
 // 基础组件
-import Button from './button';
-import Switch from './switch';
-import Loading from './loading';
-import Tab from './tab';
-import Scroll from './scroll';
+import Button from './Button';
+import Switch from './Switch';
+import Loading from './Loading';
+import Nav from './Nav';
+import Tab from './Tab';
+import Scroll from './Scroll';
 
-export default [Button, Switch, Loading, Tab, Scroll];
+export default [Button, Switch, Loading, Nav, Tab, Scroll];
