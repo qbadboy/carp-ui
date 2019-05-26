@@ -1,30 +1,23 @@
 # Tab
 
-tab 组件，支持双向绑定、flex 布局。[DEMO](/examples/tab.html)
+tab 组件，支持多种自定义样式。[DEMO](/examples/tab.html)
 
 ## 示例
 
 <device :site="'/carp-ui/examples/tab.html'"></device>
 
-flex 布局
+默认样式
 
 ```vue
 <template>
-  <carp-tab flex></carp-tab>
-</template>
-```
-
-双向绑定
-
-```vue
-<template>
-  <carp-tab v-model="index" />
+  <carp-tab :data="data" v-model="index">
 </template>
 
 <script>
 export default {
   data() {
     return {
+      data: [{name: '标签1'}, {name: '标签2'}]
       index: 0
     };
   }
@@ -32,87 +25,47 @@ export default {
 </script>
 ```
 
-tab 选项禁用
+x 轴滚动开关
 
 ```vue
 <template>
-  <carp-tab :data="tabs"></carp-tab>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      tabs: [{ name: '选项一' }, { name: '选项二', disabled: true }]
-    };
-  }
-};
-</script>
-```
-
-动画
-
-```vue
-<template>
-  <carp-tab v-model="index" animation />
+  <carp-tab scroll-x></carp-tab>
 </template>
 ```
 
-TabItem 自定义样式
+设置 tabItem 宽度
 
 ```vue
+// 如果传入小数按tab宽度百分比计算
 <template>
-  <carp-tab v-model="index" color="#F60" :font-size="16" />
+  <carp-tab :width="100"></carp-tab>
+  <carp-tab :width="1 / 2"></carp-tab>
 </template>
 ```
 
-指示器自定义样式
+设置 indicator 宽度
 
 ```vue
+// 默认自适应tabItem宽度
 <template>
-  <!-- 点 -->
-  <carp-tab point />
-  <!-- 下划线 -->
-  <carp-tab />
-  <!-- 下划线自定义 -->
-  <carp-tab :indicator-width="10" indicator-color="#F60" />
+  <carp-tab :indicator-width="20"></carp-tab>
 </template>
 ```
 
-插槽
+显示 border
 
 ```vue
 <template>
-  <carp-tab :data="tabs" v-model="index">
-    <div v-show="index === 0">tab1 content</div>
-    <div v-show="index === 1">tab1 content</div>
-  </carp-tab>
+  <carp-tab border></carp-tab>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      tabs:[{name: '选项一'},{name: '选项二'}]
-      index: 0
-    };
-  }
-};
-</script>
 ```
 
 ## Props
 
 | 属性           |                说明                 |  类型   | 默认值 |
 | :------------- | :---------------------------------: | :-----: | -----: |
-| point          |     指示器点状样式，默认为条状      | Boolean |  false |
-| flex           |            flex 布局开关            | Boolean |  false |
 | data           |       tab 名称(具体值见示例)        |  Array  |     [] |
-| color          |            tab 选项颜色             | String  |   null |
-| fontSize       |            tab 选项字号             | Number  |     20 |
-| lineHeight     |            tab 选项行高             | Number  |    2.8 |
+| border         |             显示 border             | Boolean |  false |
+| width          |   tabItem 宽度,默认自适应内容宽度   | Number  |   null |
 | indicatorWidth | 指示器宽度，默认自适应 tab 选项宽度 | Number  |   null |
-| indicatorColor |             指示器颜色              | String  |   null |
-| duration       |          动画时间，单位 ms          | Number  |    800 |
-| animation      |              动画开关               | Boolean |  false |
-| scroll         |              滚动开关               | Boolean |  false |
+| scrollX        |              滚动开关               | Boolean |  false |

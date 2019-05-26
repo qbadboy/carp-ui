@@ -5,6 +5,7 @@
     <carp-button>TEST</carp-button>
     <br />
     <carp-button loading>TEST</carp-button>
+    <br />
     <carp-button outline loading>TEST</carp-button>
     <p>- Loading -</p>
     <carp-loading></carp-loading>

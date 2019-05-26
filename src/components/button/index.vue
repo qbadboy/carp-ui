@@ -78,6 +78,8 @@ export default {
   color btn-text-color
   background-color btn-background-color
   user-select none
+  .loading > div
+    background-color color-white !important
   &:active
     background-color desaturate(btn-background-color, 40%)
   &.radius
@@ -94,9 +96,7 @@ export default {
     color btn-background-color
     borderOnePx(btn-background-color)
     .loading > div
-      background-color color-primary
-  .loading > div
-    background-color color-white
+      background-color color-primary !important
   &.disabled
     color darken(btn-text-color, 5%)
     background-color lighten(desaturate(btn-background-color, 80%), 80%)

@@ -37,6 +37,12 @@ export default {
     event: 'nav:click',
     prop: 'current'
   },
+  watch: {
+    current(val, oldVal) {
+      if (val === oldVal) return;
+      this.setIndicatorPosition(val, false);
+    }
+  },
   methods: {
     onClick(idx) {
       this.$emit('nav:click', idx);

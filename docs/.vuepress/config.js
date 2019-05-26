@@ -28,7 +28,8 @@ module.exports = {
           '/component/button',
           '/component/switch',
           '/component/loading',
-          '/component/tab'
+          '/component/tab',
+          '/component/nav'
         ]
       }
     ]
