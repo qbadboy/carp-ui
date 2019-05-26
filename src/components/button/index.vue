@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Loading from '../loading';
+import Loading from '../Loading';
 
 export default {
   name: 'carp-button',

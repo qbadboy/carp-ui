@@ -14,13 +14,13 @@ export default {
 
 <style lang="stylus">
 circel()
-  width 6px
+  width loading-circel-size
   height @width
   border-radius 50%
 c-loading()
   circel()
   position absolute
-  background-color color-primary
+  background-color loading-color
   opacity 0.2
 .carp-loading
   circel()
