@@ -19,12 +19,17 @@
     <p>- Tab -</p>
     <carp-tab
       :data="tab.data"
+      border
+      :indicator-width="20"
       v-model="tab.index"
-      :font-size="20"
-      :animation="true"
     ></carp-tab>
     <br />
-    <carp-tab :data="tab.data" v-model="tab.index" :animation="true"></carp-tab>
+    <carp-tab
+      :data="tab.data"
+      v-model="tab.index"
+      :width="1 / 2"
+      :scroll-x="true"
+    ></carp-tab>
     <p>- Scroll -</p>
     <div style="height: 80px;">
       <carp-scroll :scrollbar="true">
@@ -66,7 +71,13 @@ export default {
         index: 0
       },
       tab: {
-        data: [{ name: '接机' }, { name: '送机' }],
+        data: [
+          { name: '接机' },
+          { name: '送机' },
+          { name: '接机' },
+          { name: '送机' },
+          { name: '接机' }
+        ],
         index: 0
       }
     };

@@ -1,11 +1,11 @@
 let timer = null;
 
-export default function debounce(fn) {
+export default function debounce(fn, time = 200) {
   return function() {
     if (timer !== null) {
       clearTimeout(timer);
     }
 
-    timer = setTimeout(fn, 200);
+    timer = setTimeout(fn, time);
   };
 }

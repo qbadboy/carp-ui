@@ -48,7 +48,6 @@ export default {
       const TRANSITION = prefixStyle('transition');
 
       let translateX = this.getOffSetLeft(index) + 'px';
-      console.log(translateX);
 
       if (this.animation && animation) {
         TRANSITION && (indicator[TRANSITION] = `all .2s linear`);
@@ -69,6 +68,7 @@ export default {
     },
     _initScroll() {
       if (this.scroll) return;
+
       this.scroll = new BScroll(this.$refs['carp-nav-scroll'], {
         scrollX: true,
         click: true
