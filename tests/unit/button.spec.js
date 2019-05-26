@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
-import Button from '@/components/button';
-import Loading from '@/components/loading';
+import Button from '@/components/Button';
+import Loading from '@/components/Loading';
 
 describe('button.vue', () => {
   it('button content', () => {

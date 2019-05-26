@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Switch from '@/components/switch';
+import Switch from '@/components/Switch';
 
 describe('switch.vue', () => {
   it('打开', () => {

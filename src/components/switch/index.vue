@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="carp-switch"
-    :class="{ active: checked, disabled }"
-    @click="trigger"
-  >
+  <div class="carp-switch" :class="{ on: checked, disabled }" @click="trigger">
     <input
       type="checkbox"
       ref="switch-input"
@@ -56,7 +52,7 @@ export default {
     transition left 200ms
   &.disabled
     opacity 0.5
-  &.active
+  &.on
     background-color switch-background-color-acitve
     border 1px solid switch-border-color-active
     &:before
