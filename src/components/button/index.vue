@@ -5,7 +5,7 @@
     ref="carp-button"
     @click="(!disabled || !loading) && $emit('click:button')"
   >
-    <Loading v-if="loading" :key="'button-loading'" class="loading"></Loading>
+    <loading v-if="loading" :key="'button-loading'" class="loading"></loading>
     <slot v-else></slot>
   </div>
 </template>

@@ -1,6 +1,14 @@
 <template>
   <div id="carp">
     <div>CARP</div>
+    <p>- iconFont -</p>
+    <div style="color: #092a44">
+      <carp-icon
+        v-for="icon in icons"
+        :key="`icon-${icon}`"
+        :name="icon"
+      ></carp-icon>
+    </div>
     <p>- Button -</p>
     <carp-button>TEST</carp-button>
     <br />
@@ -58,6 +66,18 @@ export default {
   name: 'carp',
   data() {
     return {
+      icons: [
+        'del',
+        'minus',
+        'plus',
+        'close',
+        'success',
+        'arrow-top',
+        'arrow-right',
+        'user',
+        'love',
+        'coupon'
+      ],
       testData: ['aaa', 'bbb', 'ccc', 'ddd', 'eee'],
       off: {
         status: false
