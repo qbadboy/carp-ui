@@ -1,9 +1,16 @@
-const css = require('./config/vue.css.js');
+const path = require('path');
+
 module.exports = {
   pages: {
     index: {
       entry: 'examples/main.js'
     }
   },
-  css
+  css: {
+    loaderOptions: {
+      stylus: {
+        import: [path.join(__dirname, './src/style/ui.styl')]
+      }
+    }
+  }
 };

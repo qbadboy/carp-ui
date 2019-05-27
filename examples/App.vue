@@ -33,7 +33,7 @@
     ></carp-tab>
     <p>- Scroll -</p>
     <div style="height: 80px;">
-      <carp-scroll :scrollbar="true">
+      <carp-scroll :scrollbar="false">
         <ul>
           <li v-for="value in 10" :key="value">{{ value }}</li>
         </ul>

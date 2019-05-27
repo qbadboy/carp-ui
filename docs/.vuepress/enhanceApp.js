@@ -1,4 +1,4 @@
-import carp from '../../lib/carp_ui.es.js';
+import carp from '../../src';
 
 export default ({ Vue }) => {
   Vue.use(carp);
