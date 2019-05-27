@@ -1,10 +1,10 @@
 <template>
-  <i class="carp-iconfont" :class="`carp-icon-${name}`"></i>
+  <i v-once class="carp-iconfont" :class="`carp-icon-${name}`"></i>
 </template>
 
 <script>
 export default {
-  name: 'carp-icon',
+  name: 'carp-iconfont',
   props: {
     name: {
       type: String,

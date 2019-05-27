@@ -3,11 +3,11 @@
     <div>CARP</div>
     <p>- iconFont -</p>
     <div style="color: #092a44">
-      <carp-icon
+      <carp-iconfont
         v-for="icon in icons"
         :key="`icon-${icon}`"
         :name="icon"
-      ></carp-icon>
+      ></carp-iconfont>
     </div>
     <p>- Button -</p>
     <carp-button>TEST</carp-button>
@@ -31,6 +31,7 @@
       border
       :indicator-width="20"
       v-model="tab.index"
+      scroll-x
     ></carp-tab>
     <br />
     <carp-tab
@@ -41,23 +42,26 @@
     ></carp-tab>
     <p>- Scroll -</p>
     <div style="height: 80px;">
-      <carp-scroll :scrollbar="false">
-        <ul>
-          <li v-for="value in 10" :key="value">{{ value }}</li>
-        </ul>
+      <carp-scroll scrollbar>
+        <div>
+          <div v-for="value in 10" :key="value">- 列表{{ value }} -</div>
+        </div>
       </carp-scroll>
     </div>
     <br />
     <carp-scroll :scroll-x="true">
       <div class="scrollx">
-        <div class="scrollx-item">1</div>
-        <div class="scrollx-item">2</div>
-        <div class="scrollx-item">3</div>
-        <div class="scrollx-item">4</div>
-        <div class="scrollx-item">5</div>
-        <div class="scrollx-item">6</div>
+        <div v-for="i in 10" :key="i" class="scrollx-item">- 列表{{ i }} -</div>
       </div>
     </carp-scroll>
+    <p>- Input -</p>
+    <carp-input v-model="input.value" placeholder="测试测试">
+      <template slot="action"
+        >删除</template
+      >
+    </carp-input>
+    <br />
+    <carp-input v-model.trim="input.value" placeholder="测试测试"></carp-input>
   </div>
 </template>
 
@@ -66,6 +70,9 @@ export default {
   name: 'carp',
   data() {
     return {
+      input: {
+        value: ''
+      },
       icons: [
         'del',
         'minus',
@@ -131,10 +138,9 @@ export default {
     .carp-loading
       display inline-block
   .scrollx
-    width 81px * 10
+    width 80px * 10
     overflow hidden
     &-item
       float left
       width 80px
-      border-right 1px solid #000
 </style>
