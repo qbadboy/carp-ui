@@ -1,6 +1,6 @@
 # Switch
 
-开关组件，状态可双向绑定。[DEMO](/examples/switch.html)
+开关组件，支持 v-model。[DEMO](/examples/switch.html)
 
 ## 示例
 
@@ -39,6 +39,6 @@ export default {
 
 ## Event
 
-| 事件名称      | 接收参数类型 |
-| :------------ | -----------: |
-| change:switch |      Boolean |
+| 事件名称      | 参数类型 |
+| :------------ | -------: |
+| change:switch |  Boolean |

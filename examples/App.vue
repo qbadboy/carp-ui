@@ -55,13 +55,28 @@
       </div>
     </carp-scroll>
     <p>- Input -</p>
-    <carp-input v-model="input.value" placeholder="测试测试">
-      <template slot="action"
-        >删除</template
-      >
+    <carp-input
+      v-model="input.value"
+      placeholder="输入你要搜索的城市"
+      :large="true"
+    >
+      <template slot="action">
+        <carp-iconfont name="love" style="color: orange"></carp-iconfont>搜索
+      </template>
     </carp-input>
     <br />
-    <carp-input v-model.trim="input.value" placeholder="测试测试"></carp-input>
+    <carp-input
+      line
+      v-model.trim="input.value"
+      placeholder="填写姓名"
+      action-text="清除"
+    ></carp-input>
+    <br />
+    <carp-input
+      v-model.trim="input.value"
+      line
+      placeholder="填写姓名"
+    ></carp-input>
   </div>
 </template>
 
