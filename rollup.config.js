@@ -16,6 +16,7 @@ export default {
     file: 'lib/carp_ui.es.js',
     format: 'es'
   },
+  external: ['vue'],
   plugins: [
     resolve({
       mainFields: ['module', 'main', 'index'],

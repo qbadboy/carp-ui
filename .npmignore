@@ -15,3 +15,7 @@ jest.config.js
 .prettierrc.js
 .travis.yml
 *.map
+.eslintignore
+.eslintrc.js
+postcss.config.js
+rollup.config.js
